@@ -4,7 +4,7 @@
     <button routerLink="/cadastro">Cadastrar Novo Funcionário</button>
     <div class="input-box"> 
         <label>Procurar</label>
-        <input type="text" placeholder="Qual Registro está buscando?" (input)="search($event)"> <!--criar a função dentro do homecomponent.ts-->>
+        <input type="text" placeholder="Qual Registro está buscando?" (input)="search($event)"> <!--criar a função dentro do homecomponent.ts-->
     </div>
 
 </div>
@@ -21,10 +21,10 @@
             <th></th>
         </tr>
     </thead>
-    <tbody *ngFor="let funcionario of funcionarios"> <!--criando um for para percorrer a lista de funcionarios-->>
+    <tbody *ngFor="let funcionario of funcionarios"> <!--criando um for para percorrer a lista de funcionarios-->
         <tr>
             <td>
-                <div *ngIf="funcionario.ativo == true; else inativo"> <!--se estiver ativo mostra o botao abaixo, caso contrario vamos colocar o elemento inativo no else e usar o ng-template-->>
+                <div *ngIf="funcionario.ativo == true; else inativo"> <!--se estiver ativo mostra o botao abaixo, caso contrario vamos colocar o elemento inativo no else e usar o ng-template-->
                     <img src="assets/images/Ativo.png" style="height: 20px; width: 20px"  alt="">
                 </div>
                 <ng-template #inativo>

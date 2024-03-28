@@ -1,12 +1,21 @@
-<h1>Cadastrar Funcionário</h1>
+<h1>{{btnTitulo}}</h1>  <!--{{btnTitulo}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
 
 <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
 
+<!--
+Vamos utilizar esse mesmo formulario na pagina de cadastrar funcionario e editar funcionario
+note que vamos mudar o texto do formulario <h1>Cadastrar Funcionário</h1> para <h1>Editar Funcionário</h1> e no
+botão de cadastrar vamos mudar para <button type="submit" [disabled]="!funcionarioForm.valid">Editar</button>
+neste componente funcionario-form.componet podemos enviar dados para fora e também receber dados para dentro dele
+vá até cadastro.component.html e veja como estamos enviando dados para dentro do componente funcionario-form.component.html como o [btnAcao]="btnAcao"
+--> 
 
-<div class="input_box">
+
+<!--O campo Id não precisa aparecer no formulario de cadastro pois ele será criado automaticamente pelo sistema conforme implementamos no metodo de AddFuncionario-->
+<!--div class="input_box">
     <label>id:</label>
     <input type="text" formControlName="id" placeholder="id">
-</div>
+</div-->
     
 <div class="input_box">
     <label>Nome:</label>
@@ -46,8 +55,8 @@
 </div>
 
 <div class = "btn-box"> 
-    <button type="submit">Cadastrar</button>
-    <button>Voltar</button>
+    <button type="submit" [disabled]="!funcionarioForm.valid">{{btnAcao}}</button> <!--[disabled]="!funcionarioForm.valid"   Habilitar o botão de {{btnAcao}} somente se os campos obrigatorios estiverem preenchidos / {{btnAcao}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
+    <button routerLink="">Voltar</button>
 
 </div>
 

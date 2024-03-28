@@ -15,6 +15,8 @@ import { FuncionarioService } from '../../services/funcionario.service';
 export class FuncionarioFormComponent implements OnInit{
 
     @Output() onSubmit = new EventEmitter<Funcionario>();
+    @Input() btnAcao!: string;
+    @Input() btnTitulo!: string;
 
     funcionarioForm!: FormGroup;
 
@@ -23,12 +25,12 @@ export class FuncionarioFormComponent implements OnInit{
   /*gOnInit Vai ser realizado a partir do momento que carrega a pagina*/
   ngOnInit(): void {
     this.funcionarioForm = new FormGroup({
-
+      // se vc tentar cadastar um funcionario sem preencher os dados, acontecera um erro, para isso vamos usar o Validators.required
       id: new FormControl(0),
-      nome: new FormControl(''),
-      sobrenome: new FormControl(''),
-      departamento: new FormControl(''),
-      turno: new FormControl(''),
+      nome: new FormControl('', [Validators.required]),
+      sobrenome: new FormControl('', [Validators.required]),
+      departamento: new FormControl('', [Validators.required]),
+      turno: new FormControl('', [Validators.required]),
       ativo: new FormControl(true),
       dataDeCriacao: new FormControl(new Date()),
       dataDeAlteracao: new FormControl(new Date())
