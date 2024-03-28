@@ -1,0 +1,63 @@
+<h1>{{btnTitulo}}</h1>  <!--{{btnTitulo}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
+
+<form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
+
+<!--
+Vamos utilizar esse mesmo formulario na pagina de cadastrar funcionario e editar funcionario
+note que vamos mudar o texto do formulario <h1>Cadastrar Funcionário</h1> para <h1>Editar Funcionário</h1> e no
+botão de cadastrar vamos mudar para <button type="submit" [disabled]="!funcionarioForm.valid">Editar</button>
+neste componente funcionario-form.componet podemos enviar dados para fora e também receber dados para dentro dele
+vá até cadastro.component.html e veja como estamos enviando dados para dentro do componente funcionario-form.component.html como o [btnAcao]="btnAcao"
+--> 
+
+
+<!--O campo Id não precisa aparecer no formulario de cadastro pois ele será criado automaticamente pelo sistema conforme implementamos no metodo de AddFuncionario-->
+<!--div class="input_box">
+    <label>id:</label>
+    <input type="text" formControlName="id" placeholder="id">
+</div-->
+    
+<div class="input_box">
+    <label>Nome:</label>
+    <input type="text" formControlName="nome" placeholder="Insira o nome!" required>
+</div>
+
+<div class="input_box">
+    <label>Sobrenome:</label>
+    <input type="text" formControlName="sobrenome" placeholder="Insira o Sobrenome" required>
+</div>
+
+<div class="input_box">
+    <label>Departamento:</label>
+    <select id="departamento" formControlName="departamento" required>
+        <option value="RH">RH</option>
+        <option value="Financeiro">Financeiro</option>
+        <option value="Compras">Compras</option>
+        <option value="Atendimento">Atendimento</option>
+        <option value="Zeladoria">Zeladoria</option>
+        <option value="Comercial">Comercial</option>
+        <option value="TI">TI</option>
+        <option value="Administrativo">Administrativo</option>
+        <option value="Logistica">Logistica</option>
+        <option value="Estoque">Estoque</option>
+    </select>
+</div>
+
+<div class="input_box">
+    <label>Turno:</label>
+    <select id="turno" formControlName="turno" required>
+        <option value="Manha">Manha</option>
+        <option value="Tarde">Tarde</option>
+        <option value="Noite">Noite</option>
+        <option value="Integral">Integral</option>
+        
+    </select>
+</div>
+
+<div class = "btn-box"> 
+    <button type="submit" [disabled]="!funcionarioForm.valid">{{btnAcao}}</button> <!--[disabled]="!funcionarioForm.valid"   Habilitar o botão de {{btnAcao}} somente se os campos obrigatorios estiverem preenchidos / {{btnAcao}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
+    <button routerLink="">Voltar</button>
+
+</div>
+
+</form>

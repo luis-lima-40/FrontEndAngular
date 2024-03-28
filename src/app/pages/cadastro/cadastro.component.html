@@ -1,0 +1,11 @@
+<!--p>cadastro works!</p-->  <!--camos reaproveitar o mesmo componente Tela para usar na rota de cadastro e na rota de editar reaproveitando o codigo, assim vamos criar o compoente formulário para ambos-->
+<div>
+    <!--app-funcionario-form onsubmit="createFuncionario($event)"></app-funcionario-form-->
+    <app-funcionario-form [btnAcao]="btnAcao" [btnTitulo]="btnTitulo"(onSubmit)="addFuncionario($event)"></app-funcionario-form>
+<!--
+    [btnAcao]="btnAcao"  o que esta do lado esquerdo [btnAcao]= é onde vai ser depositado o que estou enviando ou seja lá no funcionario-form.component.ts e a variavel "btnAcao" que esta do lado direito é o que estou enviando
+    as variaveis btnAcao e btnTitulo serão declaradas no cadastro.component.ts
+-->
+    <!--app-funcionario-form onsubmit="AddFuncionario($event)"></app-funcionario-form>    dando erro com onsubmit-->
+
+</div>
