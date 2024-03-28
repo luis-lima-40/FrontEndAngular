@@ -1,4 +1,8 @@
 <!--p>cadastro works!</p-->  <!--camos reaproveitar o mesmo componente Tela para usar na rota de cadastro e na rota de editar reaproveitando o codigo, assim vamos criar o compoente formulário para ambos-->>
 <div>
-    <app-funcionario-form onsubmit="createFuncionario($event)"></app-funcionario-form>
+    <!--app-funcionario-form onsubmit="createFuncionario($event)"></app-funcionario-form-->
+    <app-funcionario-form (onSubmit)="addFuncionario($event)"></app-funcionario-form>
+
+    <!--app-funcionario-form onsubmit="AddFuncionario($event)"></app-funcionario-form>    dando erro com onsubmit-->
+
 </div>

@@ -2,14 +2,12 @@
 
 <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
 
-<!--remocer esse id depois, somente teste luis-->>
-    <!--div class="input_box">
-        <label>id:</label>
-        <input type="text" formControlName="id" placeholder="Insira o nome!" >
-    </div-->
 
-<!--remocer esse id depois, somente teste luis-->>
-
+<div class="input_box">
+    <label>id:</label>
+    <input type="text" formControlName="id" placeholder="id">
+</div>
+    
 <div class="input_box">
     <label>Nome:</label>
     <input type="text" formControlName="nome" placeholder="Insira o nome!" required>
@@ -28,6 +26,11 @@
         <option value="Compras">Compras</option>
         <option value="Atendimento">Atendimento</option>
         <option value="Zeladoria">Zeladoria</option>
+        <option value="Comercial">Comercial</option>
+        <option value="TI">TI</option>
+        <option value="Administrativo">Administrativo</option>
+        <option value="Logistica">Logistica</option>
+        <option value="Estoque">Estoque</option>
     </select>
 </div>
 
@@ -37,6 +40,7 @@
         <option value="Manha">Manha</option>
         <option value="Tarde">Tarde</option>
         <option value="Noite">Noite</option>
+        <option value="Integral">Integral</option>
         
     </select>
 </div>

@@ -11,6 +11,7 @@ import { FuncionarioService } from '../../services/funcionario.service';
   templateUrl: './funcionario-form.component.html',
   styleUrl: './funcionario-form.component.css'
 })
+
 export class FuncionarioFormComponent implements OnInit{
 
     @Output() onSubmit = new EventEmitter<Funcionario>();
@@ -39,9 +40,9 @@ export class FuncionarioFormComponent implements OnInit{
   }
 
   submit(){
-    console.log(this.funcionarioForm)
+    /*console.log(this.funcionarioForm.value)*/
 
-    /*this.onSubmit.emit(this.funcionarioForm.value);*/
+    this.onSubmit.emit(this.funcionarioForm.value);
 
   }
 }
