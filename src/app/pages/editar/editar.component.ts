@@ -30,7 +30,6 @@ export class EditarComponent implements OnInit{
       this.router.navigate(['/']);
     });
     /*crie no funcionario.services.ts o metodo UpdateFuncionario*
-    para isso vamos copiar o metodo AddFuncionario e fazer as alterações necessárias para que ele faça um put ao invés de um post, e que ele receba um funcionario como parametro, e que ele faça um put para a nossa api, e que ele retorne um observable do tipo Response<Funcionario[]>*
-    /
+    para isso vamos copiar o metodo AddFuncionario e fazer as alterações necessárias para que ele faça um put ao invés de um post, e que ele receba um funcionario como parametro, e que ele faça um put para a nossa api, e que ele retorne um observable do tipo Response<Funcionario[]>*/
   }
 }
