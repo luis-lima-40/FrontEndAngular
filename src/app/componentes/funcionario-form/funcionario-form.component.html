@@ -11,11 +11,11 @@ vá até cadastro.component.html e veja como estamos enviando dados para dentro 
 --> 
 
 
-<!--O campo Id não precisa aparecer no formulario de cadastro pois ele será criado automaticamente pelo sistema conforme implementamos no metodo de AddFuncionario-->
-<!--div class="input_box">
-    <label>id:</label>
-    <input type="text" formControlName="id" placeholder="id">
-</div-->
+<!--O campo Id não precisa aparecer no formulario de cadastar novo funcionario pois ele será criado automaticamente pelo sistema conforme implementamos no metodo de AddFuncionario
+mas para editar um funcionario ele precisara aparecer e vamos mandar essa informação para o banco de dados para fazer o update
+porem ele não vai aparecer em tela por isso vamor usar o tipo "hidden"-->
+
+<input type="hidden" formControlName="id">
     
 <div class="input_box">
     <label>Nome:</label>

@@ -1,0 +1,17 @@
+<!--
+    crie a rota para esta pagina de editar á na pagina home.component.html no botão editar e traga com ele o id e informações do usuário que irá ser editado
+em serviços va para app-routing.module.ts e crie a rota para editar { path: 'editar/:id', component: EditarComponent }
+-->
+<div *ngIf="funcionario"> <!--aqui só vai recarregar o nosso forme a partir do momento em que existir o funcionario ja carregado-->
+
+    <app-funcionario-form 
+        [btnAcao]="btnAcao" 
+        [btnTitulo]="btnTitulo" 
+        [dadosFuncionario]="funcionario"
+        (onSubmit)="updateFuncionario($event)"></app-funcionario-form>
+        <!--O onSubmit quando vier do funcionarioForm um funcionario editado e for submetido isso ao nosso
+        componente e vai realizar o processo de editar funcionario recebendo o funcionario que veio do nosso 
+        funcionario-form-component.ts
+        vamos criar a função editarFuncionario dentro do nosso editar.component.ts-->
+
+</div>
