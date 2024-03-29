@@ -37,7 +37,7 @@
             <td>{{funcionario.departamento}}</td>
             <td>
                 <button routerLink="/editar/{{funcionario.id}}">Editar</button> <!--quando clicamos no botao editar passe a rota usando o routerlink, use a sintaxe de interpolação para pegar o id no objeto funcionario que ja está carregado na pagina-->
-                <button>Detalhes</button>
+                <button routerLink="/detalhes/{{funcionario.id}}">Detalhes</button>
             </td>
             <td>
                 <button>Excluir</button>
