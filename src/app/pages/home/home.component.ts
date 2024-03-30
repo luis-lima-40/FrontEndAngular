@@ -3,6 +3,7 @@ import { FuncionarioService } from '../../services/funcionario.service';
 import { Funcionario } from '../../models/Funcionarios';
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,6 +14,11 @@ export class HomeComponent implements OnInit { /*OnInit é um ciclo de vida do a
   funcionarios: Funcionario[] = []; /*Array de funcionarios, que é um array de objetos que tem as propriedades que estão no model Funcionarios.ts*/
   funcionariosGeral: Funcionario[] = []; /*Array de funcionariosGeral, que vai pegar o array Funcionario[] para verificar quais deles estão ativos ou inativos dentro do array verificando quem esta com status ativo true ou false e preenchendo este funcionariosGeral com o resultado que vai ser usado no imput de busca, de procurar */
   
+
+colunas = ['Situação', 'Nome', 'Sobrenome', 'Departamento', 'Ações', 'Excluir']; /*Este array com o nome das colunas é usado no html para mapear a tabela do angular material*/ 
+
+
+
   constructor(private funcionarioService: FuncionarioService){}
 
   ngOnInit(): void { /*Quando o componente é criado, ele executa o que esta dentro do ngOnInit, aqui a primeira coisa a ser executada é um get para mostrar todos os funcionarios da nossa tabela quando carregar a pagina buscar funcionarios*/

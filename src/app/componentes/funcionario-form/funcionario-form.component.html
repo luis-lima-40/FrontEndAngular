@@ -1,6 +1,66 @@
+<mat-card>
 <h1>{{btnTitulo}}</h1>  <!--{{btnTitulo}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
 
 <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
+
+
+<input type="hidden" formControlName="id">
+
+    
+<div class="input_box">
+    <mat-form-field>
+        <mat-label>Nome:</mat-label>
+        <input matInput type="text" formControlName="nome" placeholder="Insira o nome!" required>
+    </mat-form-field>
+</div>
+
+<div class="input_box">
+    <mat-form-field>
+        <mat-label>Sobrenome:</mat-label>
+        <input matInput type="text" formControlName="sobrenome" placeholder="Insira o Sobrenome" required>
+    </mat-form-field>
+</div>
+
+
+<div class="input_box">
+    <mat-form-field>
+        <mat-label for="">Departamento:</mat-label>
+        <mat-select id="departamento" formControlName="departamento" required>
+            <mat-option value="RH">RH</mat-option>
+            <mat-option value="Financeiro">Financeiro</mat-option>
+            <mat-option value="Compras">Compras</mat-option>
+            <mat-option value="Atendimento">Atendimento</mat-option>
+            <mat-option value="Zeladoria">Zeladoria</mat-option>
+            <mat-option value="Comercial">Comercial</mat-option>
+            <mat-option value="TI">TI</mat-option>
+            <mat-option value="Administrativo">Administrativo</mat-option>
+            <mat-option value="Logistica">Logistica</mat-option>
+            <mat-option value="Estoque">Estoque</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="input_box">
+    <mat-form-field>
+        <mat-label for="">Turno:</mat-label>
+        <mat-select id="turno" formControlName="turno" required>
+            <mat-option value="Manha">Manha</mat-option>
+            <mat-option value="Tarde">Tarde</mat-option>
+            <mat-option value="Noite">Noite</mat-option>
+            <mat-option value="Integral">Integral</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class = "btn-box"> 
+    <button type="submit" [disabled]="!funcionarioForm.valid" mat-raised-button color="accent">{{btnAcao}}</button> <!--[disabled]="!funcionarioForm.valid"   Habilitar o botão de {{btnAcao}} somente se os campos obrigatorios estiverem preenchidos / {{btnAcao}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
+    <button routerLink="" mat-raised-button>Voltar</button>
+
+</div>
+
+</form>
+</mat-card>
+
 
 <!--
 Vamos utilizar esse mesmo formulario na pagina de cadastrar funcionario e editar funcionario
@@ -14,50 +74,3 @@ vá até cadastro.component.html e veja como estamos enviando dados para dentro 
 <!--O campo Id não precisa aparecer no formulario de cadastar novo funcionario pois ele será criado automaticamente pelo sistema conforme implementamos no metodo de AddFuncionario
 mas para editar um funcionario ele precisara aparecer e vamos mandar essa informação para o banco de dados para fazer o update
 porem ele não vai aparecer em tela por isso vamor usar o tipo "hidden"-->
-
-<input type="hidden" formControlName="id">
-    
-<div class="input_box">
-    <label>Nome:</label>
-    <input type="text" formControlName="nome" placeholder="Insira o nome!" required>
-</div>
-
-<div class="input_box">
-    <label>Sobrenome:</label>
-    <input type="text" formControlName="sobrenome" placeholder="Insira o Sobrenome" required>
-</div>
-
-<div class="input_box">
-    <label>Departamento:</label>
-    <select id="departamento" formControlName="departamento" required>
-        <option value="RH">RH</option>
-        <option value="Financeiro">Financeiro</option>
-        <option value="Compras">Compras</option>
-        <option value="Atendimento">Atendimento</option>
-        <option value="Zeladoria">Zeladoria</option>
-        <option value="Comercial">Comercial</option>
-        <option value="TI">TI</option>
-        <option value="Administrativo">Administrativo</option>
-        <option value="Logistica">Logistica</option>
-        <option value="Estoque">Estoque</option>
-    </select>
-</div>
-
-<div class="input_box">
-    <label>Turno:</label>
-    <select id="turno" formControlName="turno" required>
-        <option value="Manha">Manha</option>
-        <option value="Tarde">Tarde</option>
-        <option value="Noite">Noite</option>
-        <option value="Integral">Integral</option>
-        
-    </select>
-</div>
-
-<div class = "btn-box"> 
-    <button type="submit" [disabled]="!funcionarioForm.valid">{{btnAcao}}</button> <!--[disabled]="!funcionarioForm.valid"   Habilitar o botão de {{btnAcao}} somente se os campos obrigatorios estiverem preenchidos / {{btnAcao}} é um botão variavel que está configurado como @imput no cadastro.components.ts e cadastro.component.html-->
-    <button routerLink="">Voltar</button>
-
-</div>
-
-</form>
