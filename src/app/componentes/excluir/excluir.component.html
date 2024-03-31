@@ -1,0 +1,18 @@
+<div *ngIf="funcionario">
+
+    <h1>Deseja Excluir? O histórico será perdido!</h1>
+    <div>
+        <p style="font-style: bold;">Funcionário:</p>
+        <p>{{funcionario.nome}}  {{funcionario.sobrenome}}:</p>
+
+        <p style="font-style: bold;">Departamento</p>
+        <p>{{funcionario.departamento}}</p>
+
+    </div>
+
+    <div>        
+        <button>Confirmar Exclusão</button>
+
+    </div>
+
+</div>

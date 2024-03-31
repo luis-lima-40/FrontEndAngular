@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { Funcionario } from '../../models/Funcionarios';
+import { MatDialog } from '@angular/material/dialog';
+import { ExcluirComponent } from '../../componentes/excluir/excluir.component';
 
 
 
@@ -19,7 +21,7 @@ colunas = ['Situação', 'Nome', 'Sobrenome', 'Departamento', 'Ações', 'Exclui
 
 
 
-  constructor(private funcionarioService: FuncionarioService){}
+  constructor(private funcionarioService: FuncionarioService,  public dialog: MatDialog){}
 
   ngOnInit(): void { /*Quando o componente é criado, ele executa o que esta dentro do ngOnInit, aqui a primeira coisa a ser executada é um get para mostrar todos os funcionarios da nossa tabela quando carregar a pagina buscar funcionarios*/
     this.funcionarioService.GetFuncionarios().subscribe(data =>{ /*Data é p response completo, o dados é as informações do funcionario que está dentro do data */
@@ -45,6 +47,16 @@ search(event : Event){ //este search é para ser usando no totão buscar que est
   this.funcionarios = this.funcionariosGeral.filter(funcionario =>{ 
     return funcionario.nome.toLowerCase().includes(value);
   })
+}
+
+OpenDialog(id: number){
+  this.dialog.open(ExcluirComponent, {
+    width: '450px',
+    height: '450px',
+    data: {id}
+   
+    /*para o dialog funcionar, precisamos criar a injeção de dependencia  public dialog: MatDialog logo acima aqui no nosso constructor, logo apos isso coloque dentro do parenteses o nosso componente que vamos abrir que é o ExcluirComponent,  */
+  });
 }
 
 }

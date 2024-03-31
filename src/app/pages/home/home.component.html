@@ -61,17 +61,16 @@
         </td>
       </ng-container>
 
-         <!-- Symbol Column -->
+        <!--Para criar o modal do tipo "Dialog neste botão de abrir, vamos no https://material.angular.io/components/dialog/examples, em Dialog, e vamos excolher o Dialog Animations, note que para ele precisamos criar um novo componente 
+        (dialog-animations-example-dialog.html) que irá gerar a telinha de abrir e fechar a tela de excluir. vamos criar esse novo compoente na nossa pasta de componentes  aqui do nosso projeto chamado de ng g c componentes/excluir"-->
     <ng-container matColumnDef="Excluir">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let funcionario"> 
 
-            <button mat-raised-button color="warn">Excluir</button>
+            <button mat-raised-button color="warn" (click)="OpenDialog(funcionario.id)" >Excluir</button> 
             
         </td>
       </ng-container>
-
-
 
   
     <tr mat-header-row *matHeaderRowDef="colunas"></tr>
