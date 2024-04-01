@@ -57,6 +57,7 @@ OpenDialog(id: number){
    
     /*para o dialog funcionar, precisamos criar a injeção de dependencia  public dialog: MatDialog logo acima aqui no nosso constructor, logo apos isso coloque dentro do parenteses o nosso componente que vamos abrir que é o ExcluirComponent,  */
   });
+
 }
 
 }

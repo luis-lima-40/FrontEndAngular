@@ -40,7 +40,7 @@ export class FuncionarioService {
 
 
   ExcluirFuncionario(id: number) : Observable<Response<Funcionario[]>>{
-    return this.http.delete<Response<Funcionario[]>>(`${this.apiUrl}?id=${id}`)
+    return this.http.delete<Response<Funcionario[]>>(`${this.apiUrl}/${id}`);
   }
 
 

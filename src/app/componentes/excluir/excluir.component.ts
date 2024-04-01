@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FuncionarioService } from '../../services/funcionario.service';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Funcionario } from '../../models/Funcionarios';
 
 @Component({
@@ -17,7 +17,9 @@ export class ExcluirComponent implements OnInit{
   constructor( 
     private FuncionarioService: FuncionarioService,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private ref: MatDialogRef<ExcluirComponent>
+    
     ){}
 
   ngOnInit(): void {
@@ -29,6 +31,17 @@ export class ExcluirComponent implements OnInit{
 
 console.log(this.data)
     })
+  }
+
+  Excluir(){
+    this.FuncionarioService.ExcluirFuncionario(this.inputdata.id).subscribe((data) =>{
+      this.ref.close();
+      window.location.reload();
+    })
+  }
+
+  Cancelar(){
+    this.ref.close();
   }
 
 }
